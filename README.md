@@ -25,6 +25,7 @@ The following functions are provided:
 	u2_64 umul_u2_64(u2_64 x,  u2_64 y); // returns x*y
 	u2_64 umul_u2_64_by_u32(u2_64 x,  uint32_t y); // returns x*y where y is "only" u32
 	u2_64 umul_u2_64_by_ten(u2_64 x); // returns x*10 - uses only shifts and adds
+	u2_64 u2_64_mult_u64_u64(uint64_t x, uint64_t y)  // 64*64bits=>u2_64 (128 bits)
 
 	u2_64 udiv_u2_64(u2_64 x, u2_64 y, u2_64 *remainder); // returns x/y => this is normally slower than udiv_u2_62_by_u32(). Remainder can be NULL if its not required
 	u2_64 udiv_u2_64_by_u32(u2_64 x, uint32_t y); // returns x/y => note y is a uint32_t which is the largest type that allows an efficient division function
@@ -43,6 +44,8 @@ The following functions are provided:
 	u2_64 flt128_to_u2_64(__float128 f); // convert float128->u2_64 - assumes f will not cause an overflow as a u2_64 
 	__float128 u2_64_to_flt128(u2_64 u); // convert u2_64 -> float128 
 ~~~
+As of release 2v0 most of the functions are in the header u2_64.h and are marked as "inline" which can result in significant improvements in execution speed.
+
 # Instalation
 Copy the files to a directory named u2_64-128bits-with-two-u64
 
